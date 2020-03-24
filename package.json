@@ -1,0 +1,17 @@
+{
+  "name": "bethehero",
+  "version": "1.0.0",
+  "description": "Eleventh week omnistack, to create a project for philanthropic institutions",
+  "main": "index.js",
+  "repository": "https://github.com/AndersonAndrad/bethehero.git",
+  "author": "Anderson Andrade (Debug) <Anderson_Andrade_@Outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "sucrase": "^3.12.1"
+  }
+}
