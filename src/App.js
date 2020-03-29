@@ -1,5 +1,6 @@
 // dependencies
 import express from 'express';
+import cors from 'cors';
 
 // files
 import router from './router';
@@ -14,6 +15,7 @@ class App {
 
   middleware(){
     this.server.use(express.json());
+    this.server.use(cors());
   }
 
   routes(){
