@@ -1,5 +1,6 @@
 # personal
 package-lock.json
+db.sqlite
 
 # Logs
 logs
