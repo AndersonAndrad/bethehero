@@ -4,33 +4,32 @@
 import connection from '../../database/connection';
 
 class IncidentController {
-  async index (request, response) {
+  async index(request, response) {
     const { page = 1 } = request.query;
 
     const [count] = await connection('incidents').count();
-    
-    const incidents = await connection('incidents')
-    .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
-    .limit(10)
-    .offset((page - 1 ) * 5)
-    .select([
-      'incidents.*',
-      'ongs.name',
-      'ongs.email',
-      'ongs.whatsapp',
-      'ongs.city',
-      'ongs.uf',
-    ]);
 
-    
-    response.header('X-Total-Count', count['count(*)']); 
+    const incidents = await connection('incidents')
+      .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
+      .limit(10)
+      .offset((page - 1) * 5)
+      .select([
+        'incidents.*',
+        'ongs.name',
+        'ongs.email',
+        'ongs.whatsapp',
+        'ongs.city',
+        'ongs.uf',
+      ]);
+
+    response.header('X-Total-Count', count['count(*)']);
 
     return response.json(incidents);
   }
 
   async store(request, response) {
     const { title, description, value } = request.body;
-    const ong_id = request.headers.auth;
+    const ong_id = request.headers.authorization;
 
     const [id] = await connection('incidents').insert({
       title,
@@ -42,17 +41,19 @@ class IncidentController {
     return response.json({ id });
   }
 
-  async delete (request, response) {
+  async delete(request, response) {
     const { id } = request.params;
-    const ong_id = request.headers.auth;
+    const ong_id = request.headers.authorization;
 
     const incident = await connection('incidents')
-    .where('id', id)
-    .select('ong_id')
-    .first();
+      .where('id', id)
+      .select('ong_id')
+      .first();
 
-    if(incident.ong_id  != ong_id) {
-      return response.status(401).json({Status: 'error, operataion not permitted'});
+    if (incident.ong_id != ong_id) {
+      return response
+        .status(401)
+        .json({ Status: 'error, operataion not permitted' });
     }
 
     await connection('incidents').where('id', id).delete();

@@ -1,15 +1,15 @@
-// dependencies 
+// dependencies
 
 // Database connection
 import connection from '../../database/connection';
 
 class ProfileController {
-  async index (request, response){
-    const ong_id = request.headers.auth;
+  async index(request, response) {
+    const ong_id = request.headers.authorization;
 
     const incidents = await connection('incidents')
-    .where('ong_id', ong_id)
-    .select('*');
+      .where('ong_id', ong_id)
+      .select('*');
 
     return response.status(200).json(incidents);
   }
