@@ -12,7 +12,7 @@ class IncidentController {
     const incidents = await connection('incidents')
       .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
       .limit(10)
-      .offset((page - 1) * 5)
+      .offset((page - 1) * 10)
       .select([
         'incidents.*',
         'ongs.name',
