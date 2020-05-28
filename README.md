@@ -1,3 +1,18 @@
+<p align="center">
+  <img src="https://github.com/AndersonAndrad/betheheroFrontend/blob/master/src/assets/logo.svg" align="center">
+</p>
+
+<p align="center">
+  <a href="https://expressjs.com/"><img src="https://img.shields.io/badge/Express-4.x-blue"></a>
+  <a href="https://nodejs.org/en/"><img src="https://img.shields.io/badge/Node-12.x-green"></a>
+  <a href="http://knexjs.org/"><img src="https://img.shields.io/badge/Knex-0.x-orange"></a>
+  <a href="https://nodemon.io/"><img src="https://img.shields.io/badge/Nodemon-2.x-red"></a>
+</p>
+
+:iphone: [Mobile](https://github.com/AndersonAndrad/betheheroMobile)
+
+:computer:[Frontend](https://github.com/AndersonAndrad/betheheroFrontend)
+
 # Be the hero (Backend)
 
 ###  :bulb: ​About the project
