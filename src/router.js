@@ -18,8 +18,20 @@ router.get('/', (request, response) => {
     Status_server: 'Online',
     Documentation_Api: 'https://github.com/AndersonAndrad/betheheroBackend',
     Frontend_Aplication: 'https://be-the-hero-we.herokuapp.com/',
-    Developer_API: ['Anderson Andrade'],
-    Developer_linkedin: ['https://www.linkedin.com/in/andersonandrad/'],
+    Developer_API: [
+      {
+        Name: 'Anderson Andrade',
+        GitHub: 'https://github.com/AndersonAndrad/',
+        Linkedin: 'https://www.linkedin.com/in/andersonandrad/',
+        Skills: [
+          'javaScript',
+          'TypeScript',
+          'ReactJs',
+          'React Native',
+          'NodeJs',
+        ],
+      },
+    ],
     End: 'Thanks you for using my API',
   });
 });
