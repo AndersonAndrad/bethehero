@@ -1,4 +1,4 @@
 // dependencies
 import App from './App';
 
-App.listen(3333);
+App.listen(process.env.PORT || 3333);
